@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TutorMe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tutor Me: Sign up for a Free Tutoring Service">
+    <meta name="author" content="Angela McCarthy">
+
+    <!-- Le styles -->
+	<link rel="stylesheet" type="text/css" href="../assets/bootstrap.css" media="screen">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+
+
+    /* Navbar links: increase padding for taller navbar */
+    .navbar .nav > li > a {
+      padding: 16px 20px;
+    }
+
+    /* Offset the responsive button for proper vertical alignment */
+    .navbar .btn-navbar {
+      margin-top: 11px;
+    }
+
+    </style>
+	<link rel="stylesheet" type="text/css" href="../assets/bootstrap-responsive.css" media="screen">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/tutorMeIcon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/tutorMeIcon.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/tutorMeIcon.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/tutorMeIcon.png">
+                                   <link rel="shortcut icon" href="../assets/tutorMeIcon.png">
+  </head>
+
+  <body>
+
+   <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+        
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/home">tutor</a><a class="brand" href="/home" style="color: #383736"><b>me</b></a>
+ 	 		<div class="nav-collapse collapse">
+    	    <!-- .nav, .navbar-search, .navbar-form, etc -->
+        		<form class="navbar-search pull-right">
+	    		 		<a href="/aboutus" style="color:#dbdbdb; margin-top: -20px; margin-right: 20px;">About</a>
+	    		 		<a href="/help" style="color:#dbdbdb; margin-top: 20px; margin-right: 20px;">Contact</a>
+	   		    </form>
+	        </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+
+    <div class="container">
+		<div class="row">
+			<div class="span7">
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+    	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    	<li data-target="#myCarousel" data-slide-to="1"></li>
+    	<li data-target="#myCarousel" data-slide-to="2"></li>
+ 	</ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="../assets/img1.gif" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Students</h1>
+              <p class="lead">Learn from an expert tutor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../assets/img2.gif" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Tutors</h1>
+              <p class="lead">Teach well, get paid well.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../assets/img3.gif" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Parents</h1>
+              <p class="lead">Find the best tutor for your child.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div><!-- /.carousel -->
+
+
+
+
+
+
+			</div>
+			<div class="span4 offset1">
+				<div id = "SignInForm">
+				
+					<h1>Sign Up</h1>
+					<p class="lead" style="color:#9d9d9d"><small>Join the wait list to gain special access to our personalized tutor matching service. <a href=""> Why a wait list? </a></small></p>
+	
+		            <%= form_for(@tutor) do |f| %>
+
+                <%= render 'error_messages' %>
+
+		            <%= f.text_field :first_name, placeholder: "First Name", class: "input-xlarge", id: "firstName" %>
+
+		            <%= f.text_field :last_name, placeholder: "Last Name", class: "input-xlarge", id: "lastName" %>
+
+		            <%= f.text_field :email, placeholder: "Your Email", class: "input-xlarge", id: "email" %>
+
+		            <%= f.text_field :zip_code, placeholder: "Zip Code", class: "input-xlarge", id: "areaCode" %>
+
+                </br>
+
+                <%= f.radio_button :gender, 'female', :checked => true, class: 'form' %> 
+                <%= label :female, 'Female', class: 'form' %>
+                <%= f.radio_button :gender, 'male', class: 'form' %>
+                <%= label :male, 'Male', class: 'form' %>
+
+                </br>
+
+                <%= f.radio_button :grade, 'k8', :checked => true, class: 'form' %> 
+                <%= label :k8, 'K-8', class: 'form' %>
+                <%= f.radio_button :grade, 'highSchool', class: 'form' %>
+                <%= label :highSchool, 'High School', class: 'form' %>
+                <%= f.radio_button :grade, 'university', class: 'form' %>
+                <%= label :university, 'University', class: 'form' %>
+
+                <%= f.select :subject1, [['Math','math'],['Science','science'],['English','english'],['Foreign Languages','foreign languages'],['Standardized Test Prep','standardized test prep']], prompt: "Area of tutoring"  %>
+
+                 <%= f.select :subject2, [['Math','math'],['Science','science'],['English','english'],['Foreign Languages','foreign languages'],['Standardized Test Prep','standardized test prep']], prompt: "Area of tutoring (opt.)"  %>
+
+                 <%= f.select :subject3, [['Math','math'],['Science','science'],['English','english'],['Foreign Languages','foreign languages'],['Standardized Test Prep','standardized test prep']], prompt: "Area of tutoring (opt.)"  %>
+
+                 <%= f.select :session_fee, [['$0-20','20'],['$20-40','40'],['40-above','above']], prompt: "Session Fee"  %>
+    
+                </br>
+
+		            <%= f.submit "Submit", class: "btn btn-large btn-success" %>
+
+              </br>
+
+		            <%= f.submit "Back", class: "btn btn-small btn-link" %>
+          <% end %>
+
+
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+
+
+
+    </div> <!-- /container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/jquery.js"></script>
+    <script src="../assets/bootstrap-transition.js"></script>
+    <script src="../assets/bootstrap-alert.js"></script>
+    <script src="../assets/bootstrap-modal.js"></script>
+    <script src="../assets/bootstrap-scrollspy.js"></script>
+    <script src="../assets/bootstrap-tooltip.js"></script>                                                  <!-- TODO: add these to sign up form? NOT POSSIBLE :( -->
+    <script src="../assets/bootstrap-button.js"></script>
+    <script src="../assets/bootstrap-collapse.js"></script>
+    <script src="../assets/bootstrap-carousel.js"></script>
+    <script>
+      !function ($) {
+        $(function(){
+          $('#myCarousel').carousel({interval: 4500})
+        })
+      }(window.jQuery)
+    </script>
+    <script src="../assets/holder.js"></script>
+  </body>
+</html>
