@@ -5,6 +5,8 @@ TutorMe::Application.routes.draw do
 
   match "/aboutus", to: "static_pages#aboutus"
 
+  match "/whywaitlist", to: "static_pages#whyWaitlist"
+
   match "/home", to: "static_pages#home"
 
   match "/", to:"static_pages#home"
